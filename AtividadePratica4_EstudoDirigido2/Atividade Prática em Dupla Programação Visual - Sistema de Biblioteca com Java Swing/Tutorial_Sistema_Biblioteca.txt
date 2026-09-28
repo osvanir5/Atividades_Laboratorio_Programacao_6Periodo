@@ -1,0 +1,66 @@
+TUTORIAL - SISTEMA DE BIBLIOTECA (JAVA SWING)
+=============================================
+1. MENU PRINCIPAL
+-----------------
+Ao abrir, aparece a janela "Sistema de Biblioteca" com quatro botões:
+- Gerenciamento de Livros
+- Gerenciamento de Membros
+- Gerenciamento de Empréstimos
+- Sair (fecha o programa)
+
+Cada botão abre a tela correspondente em uma nova janela. Fechar uma
+dessas janelas volta ao menu; o programa só termina ao fechar o menu
+principal ou clicar em "Sair".
+
+
+2. GERENCIAMENTO DE LIVROS
+--------------------------
+- Adicionar: preencha Título, Autor, Ano e ISBN e clique em
+  "Adicionar livro". O ISBN não pode se repetir e o Ano deve ser um número.
+- Editar: clique numa linha da tabela (os dados vão para os campos),
+  altere o que quiser e clique em "Editar livro selecionado".
+- Remover: selecione uma linha e clique em "Remover livro". Livros
+  emprestados não podem ser removidos.
+- "Limpar campos" esvazia o formulário.
+- A coluna "Situação" mostra se o livro está Disponível ou Emprestado.
+
+
+3. GERENCIAMENTO DE MEMBROS
+---------------------------
+- Cadastrar: preencha Nome, Matrícula e Contato e clique em
+  "Cadastrar membro". A matrícula não pode se repetir.
+- Editar: selecione o membro na tabela, altere os campos e clique em
+  "Editar membro".
+- "Listar membros" atualiza a tabela com todos os membros cadastrados.
+
+
+4. GERENCIAMENTO DE EMPRÉSTIMOS
+-------------------------------
+- Realizar: escolha um livro (só aparecem os disponíveis) e um membro
+  nas caixas de seleção e clique em "Realizar empréstimo". O livro
+  deixa de aparecer na lista de disponíveis.
+- Encerrar: selecione um empréstimo ATIVO na tabela e clique em
+  "Encerrar empréstimo selecionado". A data de devolução é registrada e
+  o livro volta a ficar disponível.
+- A tabela mostra todos os empréstimos, ativos e finalizados, com as
+  datas e a situação de cada um.
+- Se as caixas estiverem vazias, cadastre antes ao menos um livro e um
+  membro.
+
+
+5. FLUXO SUGERIDO PARA TESTAR
+-----------------------------
+1. Cadastre 2 livros em "Gerenciamento de Livros".
+2. Cadastre 2 membros em "Gerenciamento de Membros".
+3. Em "Gerenciamento de Empréstimos", realize um empréstimo.
+4. Volte a "Livros": o livro aparece como "Emprestado" e não pode ser removido.
+5. Encerre o empréstimo e confira que o livro voltou a "Disponível".
+
+
+6. COMO O CÓDIGO ESTÁ ORGANIZADO
+--------------------------------
+Modelo:   Livro, Membro, Emprestimo (atributos privados + getters/setters)
+Dados:    Biblioteca (guarda os três ArrayList; única instância compartilhada)
+Telas:    TelaPrincipal, TelaLivros, TelaMembros, TelaEmprestimos
+          (cada tela lê e altera as listas de Biblioteca e mostra os dados
+          em uma JTable)
